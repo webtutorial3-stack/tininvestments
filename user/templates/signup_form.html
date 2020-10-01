@@ -1,0 +1,137 @@
+{% extends 'homebase.html' %}
+{% load static %}
+{% block title %}  {{ setting.title}}  {% endblock %}
+{% block keywords %}   {{ setting.keywords}}  {% endblock %}
+
+
+{% block content %}
+    
+    <!--welcome area start-->
+    <div class="welcome-area v2 wow fadeInUp" id="home">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 align-self-center">
+                
+                
+                   {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+
+            <form action="" method="post">
+    {% csrf_token %}
+
+                {% for field in form %}
+                <p>
+
+                    {{ field.label_tag }}<br>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small style="...">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p style="...">{{ error }}</p>
+                    {% endfor %}
+
+                </p>
+                {% endfor %}
+                    <p>Enter Id Image</p>   
+                    <div class="file-upload">
+  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3>Drag and drop a file or select add Image</h3>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" src="#" alt="your image" />
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+    </div>
+  </div>
+</div>
+          <div class="space-20"></div>
+                    
+                        <a href="#" class="gradient-btn v2">Send message</a>
+            
+            </form> 
+            </div>
+                                <div class="col-12 col-lg-5 offset-1">
+                    <div class="v2 welcome-progress">
+                        <h4>ico ends in</h4>
+                        <div class="progress-time">
+                            <div class="row">
+                               <div class="col">
+                                   <span id="days" class="timeOne"></span>
+                                   <h5>days</h5>
+                               </div>
+                               <div class="col">
+                                   <span id="hours" class="timeTwo"></span>
+                                   <h5>hours</h5>
+                               </div>
+                               <div class="col">
+                                   <span id="minutes" class="timeTrhee"></span>
+                                    <h5>minutes</h5>
+                               </div>
+                               <div class="col">
+                                   <span id="seconds" class="timeFour"></span>
+                                   <h5>seconds</h5>
+                               </div>
+                           </div>
+                        </div>
+                        <div class="space-10"></div>
+                        <div class="prgress-bar">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="single-prgress-w">
+                                        <p>goals</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="single-prgress-w text-right">
+                                        <p>$ 100 m</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress v2">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                  <span class="sr-only">70% Complete</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="single-prgress-b">
+                                        <p>BTC Collected : 120,250</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="single-prgress-b text-right">
+                                        <p>Total : 250,000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-10"></div>
+                        <a href="#" class="gradient-btn">Invest in ico</a>
+                    </div>
+                </div>
+     
+            </div>
+        </div>
+    </div>
+    <!--welcome area end-->
+
+
+
+
+
+
+        
+{% endblock %}
