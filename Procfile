@@ -1,1 +1,1 @@
-web: gunicorn invest.wsgi --log-file -
+web: gunicorn justinvest.wsgi --log-file -
